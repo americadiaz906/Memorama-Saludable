@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memorama de Alimentos Saludables 🍎🥦</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="game-header">
+      <div class="logo-area">
+        <h1>¡Memorama Saludable! 🍇🥕</h1>
+        <p class="subtitle">¡Encuentra las parejas de comida sana y llena tu plato de energía!</p>
+      </div>
+      
+      <div class="controls-container">
+        <!-- Controles de Dificultad -->
+        <div class="difficulty-controls">
+          <button class="btn btn-diff active" data-difficulty="easy" id="btn-easy">
+            <span class="icon">👶</span> Fácil
+          </button>
+          <button class="btn btn-diff" data-difficulty="medium" id="btn-medium">
+            <span class="icon">👦</span> Medio
+          </button>
+          <button class="btn btn-diff" data-difficulty="hard" id="btn-hard">
+            <span class="icon">🚀</span> Difícil
+          </button>
+        </div>
+
+        <!-- Controles de Audio -->
+        <div class="audio-controls">
+          <button class="btn btn-icon" id="toggle-sound" title="Activar/Desactivar Sonido">
+            <span class="audio-icon" id="sound-icon">🔊</span>
+          </button>
+          <button class="btn btn-icon" id="toggle-voice" title="Activar/Desactivar Voz Educativa">
+            <span class="audio-icon" id="voice-icon">🗣️</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Marcador y Estadísticas del Juego -->
+    <section class="game-stats">
+      <div class="stat-box">
+        <span class="stat-label">Parejas:</span>
+        <span class="stat-value" id="matches-counter">0 / 0</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-label">Intentos:</span>
+        <span class="stat-value" id="moves-counter">0</span>
+      </div>
+      <div class="stat-box stars-box">
+        <span class="stat-label">Estrellas:</span>
+        <div class="stars-container" id="stars-container">
+          <span class="star active">★</span>
+          <span class="star active">★</span>
+          <span class="star active">★</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tablero de Juego -->
+    <main class="game-board-wrapper">
+      <div class="game-board easy" id="game-board">
+        <!-- Las cartas se generarán dinámicamente mediante JavaScript -->
+      </div>
+    </main>
+
+    <!-- Modal de Celebración de Victoria -->
+    <div class="modal-overlay" id="victory-modal">
+      <div class="modal-content">
+        <div class="modal-ribbon">🏆 ¡LO LOGRASTE! 🏆</div>
+        <div class="modal-body">
+          <div class="victory-character">
+            <!-- Personaje alegre -->
+            <svg viewBox="0 0 100 100" class="kawaii-star">
+              <polygon points="50,5 64,36 98,36 70,57 81,91 50,70 19,91 30,57 2,36 36,36" fill="#FFD700" stroke="#FF8C00" stroke-width="3"/>
+              <!-- Ojos felices -->
+              <ellipse cx="40" cy="45" rx="5" ry="5" fill="#2C3E50"/>
+              <ellipse cx="60" cy="45" rx="5" ry="5" fill="#2C3E50"/>
+              <circle cx="38" cy="43" r="1.5" fill="#FFFFFF"/>
+              <circle cx="58" cy="43" r="1.5" fill="#FFFFFF"/>
+              <!-- Mejillas -->
+              <ellipse cx="32" cy="53" rx="5" ry="3" fill="#FF8080" opacity="0.8"/>
+              <ellipse cx="68" cy="53" rx="5" ry="3" fill="#FF8080" opacity="0.8"/>
+              <!-- Sonrisa -->
+              <path d="M 42 55 Q 50 65 58 55" fill="none" stroke="#2C3E50" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h2>¡Eres un Súper Campeón Saludable!</h2>
+          <p>Has encontrado todas las parejas saludables y ganaste:</p>
+          <div class="victory-stars" id="victory-stars">
+            <!-- Estrellas de victoria -->
+          </div>
+          <p class="victory-message" id="victory-message">¡Comer sano te da súper poderes!</p>
+          <button class="btn btn-primary btn-large" id="btn-restart">
+            🎮 ¡Jugar otra vez!
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Guía Educativa para Padres y Maestros -->
+    <footer class="educational-guide">
+      <div class="guide-header" id="guide-toggle">
+        <h2>Guía para Padres y Maestros: Alimentos Saludables 🍎🥦 <span>(Toca para abrir/cerrar)</span></h2>
+        <span class="toggle-arrow">▼</span>
+      </div>
+      <div class="guide-content" id="guide-content">
+        <p class="guide-intro">Esta guía te ayuda a conversar con los niños mientras juegan. ¡Aprender divirtiéndose es mejor!</p>
+        <div class="foods-catalog" id="foods-catalog">
+          <!-- Los alimentos se inyectarán aquí para mostrar sus beneficios -->
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
